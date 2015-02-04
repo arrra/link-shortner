@@ -3,3 +3,13 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  form(action="/urlShortenedResult", method='post')
+    div
+      label Enter the URL to be shortened
+      br
+      input(type="text", name="userProvidedUrl")
+    div
+      label Enter your two favorite keywords, so we can custom the link based on your keywords
+      br
+      input(type="text", name="userKeyWord")
