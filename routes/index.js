@@ -29,7 +29,7 @@ router.post('/link', function(req, res) {
       console.log(err);
       return;
     } else {
-      res.render('result/link');
+      res.render('result/link', {link: link});
     }
   });
 });
