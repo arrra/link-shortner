@@ -7,6 +7,6 @@ var linkSchema = Schema({
   sys_gen_link : { type: Array, unique: true }
 });
 
-var Link = mongoose.model('Link', linkSchema);
+var Result = mongoose.model('Link', linkSchema);
 
-module.exports = Link;
+module.exports = Result;

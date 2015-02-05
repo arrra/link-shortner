@@ -4,8 +4,10 @@ block content
   h1= title
   p Welcome to #{title}
 
-  form(action="/urlShortenedResult", method='post')
+  form(action="/link", method="post")
     div
       label Enter the URL to be shortened
       br
       input(type="text", name="userProvidedUrl")
+    div
+      input(type="submit" value="shortern URL")
