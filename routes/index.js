@@ -8,13 +8,13 @@ router.get('/', function(req, res, next) {
 });
 
 //random char
-function makeid()
+function randomCharUrl()
 {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var text = "localhost:3000/";
+    var listRandom = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     for( var i=0; i < 5; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+        text += listRandom.charAt(Math.floor(Math.random() * listRandom.length));
 
     return text;
 }
@@ -23,7 +23,7 @@ function makeid()
 router.post('/link', function(req, res) {
   Result.create({
     link_to_be_shortened: req.body.userProvidedUrl,
-    sys_gen_link: makeid()
+    sys_gen_link: randomCharUrl()
   }, function(err, link) {
     if (err) {
       console.log(err);
