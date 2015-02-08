@@ -8,15 +8,15 @@ router.get('/', function(req, res, next) {
 });
 
 //random char
+  var listRandom = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 function randomCharUrl()
 {
-    var text = "localhost:3000/";
-    var listRandom = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  var text = "https://localhost:3000/";
 
-    for( var i=0; i < 5; i++ )
-        text += listRandom.charAt(Math.floor(Math.random() * listRandom.length));
+  for( var i=0; i < 5; i++ )
+  text += listRandom.charAt(Math.floor(Math.random() * listRandom.length));
 
-    return text;
+  return text;
 }
 
 //saving link to DB

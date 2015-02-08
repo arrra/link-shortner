@@ -2,5 +2,5 @@ extends ../layout
 
 block content
 
-  p "Below is your random link"
-  h2 #{link.sys_gen_link}
+  p "Below is your shortened link"
+  a(href='https://'+link.link_to_be_shortened) #{link.sys_gen_link}
