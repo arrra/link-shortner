@@ -1,8 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Welcome to the link shortner
 
   form(action="/link", method="post")
     div
@@ -10,4 +9,8 @@ block content
       br
       input(type="text", name="userProvidedUrl")
     div
-      input(type="submit" value="shortern URL")
+      label Enter one favorite word
+      br
+      input(type="text", name="userFavoriteKeyword")
+    div
+      input(type="submit" value="short URL")
