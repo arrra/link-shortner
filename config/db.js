@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var conn = mongoose.connection; //Default Connection
+var mongoose = require('mongoose'),
+conn         = mongoose.connection; //Default Connection
 
 var uri = 'mongodb://localhost/link-shortner';
 

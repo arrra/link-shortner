@@ -1,12 +1,53 @@
-body {
+
+.body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px, "Din Rounded Pro", Helvetica, sans-serif;
+  background-color: #69D2E7;
 }
 
-a {
-  color: #00B7FF;
+.body .label {
+  color:white;
 }
 
-p {
-  float: middle;
+.alert {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+.center .h3 {
+  color: gray;
+  margin-top: 80px;
+}
+
+
+.body .h1 {
+  color:white;
+  font-size: 160px;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+.btn {
+  margin-left: 3px;
+}
+.body .form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  text-align: center;
+  width: 70%;
+}
+
+.glyphicon {
+  margin-top: 10px;
 }

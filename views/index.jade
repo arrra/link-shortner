@@ -1,16 +1,31 @@
 extends layout
 
-block content
-  h1 Welcome to the link shortner
-
-  form(action="/link", method="post")
-    div
-      label Enter the URL to be shortened
-      br
-      input(type="text", name="userProvidedUrl")
-    div
-      label Enter one favorite word
-      br
-      input(type="text", name="userFavoriteKeyword")
-    div
-      input(type="submit" value="short URL")
+block pageContainer
+  .body
+    .h1 Insy
+    .form
+      form(action="/link", method="post")
+        .form-inline
+          .form-group
+            .label URL
+            input(type="text", name="userProvidedUrl", placeholder="www.google.com").form-control
+          .form-group
+            .label Keyword
+            input(type="text", name="userFavoriteKeyword", placeholder="Enter One keyword").form-control
+          input(type="submit" value="short URL").btn.btn-default.btn-primary
+  if(err)
+    .alert.alert-danger.alert-dismissable Please Enter URL and Keyword
+      input(type="button", class="close", data-dismiss="alert", role="alert", aria-label="Close" value="X")
+  .center
+    if(link)
+      .h3 Below is your shortened link
+      .lead
+        a(href=link.link_to_be_shortened).glyphicon.glyphicon-ok #{link.sys_gen_link}
+        br
+        a(href=link.link_to_be_shortened).glyphicon.glyphicon-ok #{link.custom_gen_link[0]}
+        br
+        a(href=link.link_to_be_shortened).glyphicon.glyphicon-ok #{link.custom_gen_link[1]}
+        br
+        a(href=link.link_to_be_shortened).glyphicon.glyphicon-ok #{link.custom_gen_link[2]}
+    else
+      .h3 Insy is a link shortner that recommends links based on your keyword, even if the keyword is taken

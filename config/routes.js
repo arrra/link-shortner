@@ -1,5 +1,5 @@
-var routes = require('../routes/index');
-var users = require('../routes/users');
+var routes = require('../routes/index'),
+users      = require('../routes/users');
 
 var router = {
   setupRoutes: function(app) {
