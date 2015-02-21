@@ -20,8 +20,6 @@ block pageContainer
     if(link)
       .h3 Below is your shortened link
       .lead
-        a(href=link.link_to_be_shortened).glyphicon.glyphicon-ok #{link.sys_gen_link}
-        br
         a(href=link.link_to_be_shortened).glyphicon.glyphicon-ok #{link.custom_gen_link[0]}
         br
         a(href=link.link_to_be_shortened).glyphicon.glyphicon-ok #{link.custom_gen_link[1]}
