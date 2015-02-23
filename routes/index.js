@@ -8,13 +8,6 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-/* GET users shortend link and redirect to original */
-router.get('/', function(req, res, next) {
-  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-  Result.find({custom_gen_link : fullUrl}, function(err,url){
-    res.redirect(url[0].link_to_be_shortened);
-  });
-});
 
 var listRandom = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -33,7 +26,7 @@ router.post('/link', function(req, res) {
 
   /* Generates chars then appends to keyword */
   function customCharUrl () {
-    var text = "http://myinsy.com/" + req.body.userFavoriteKeyword;
+    var text = "http://localhost/" + req.body.userFavoriteKeyword;
 
     for( var i=0; i < 1; i++ )
     text += listRandom.charAt(Math.floor(Math.random() * listRandom.length));
@@ -42,7 +35,7 @@ router.post('/link', function(req, res) {
 
   /* Generates chars then appends to link */
   function randomCharUrl () {
-    var text = "http://myinsy.com/";
+    var text = "http://localhost/";
 
     for( var i=0; i < 5; i++ )
     text += listRandom.charAt(Math.floor(Math.random() * listRandom.length));
@@ -57,7 +50,7 @@ router.post('/link', function(req, res) {
 
   function keywordLink () {
     Result.find({keyword : req.body.userFavoriteKeyword}, function(err,keyword) {
-      var text = "http://myinsy.com/" + req.body.userFavoriteKeyword;
+      var text = "http://localhost/" + req.body.userFavoriteKeyword;
       if (err == null){
         return text;
       }

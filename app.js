@@ -32,12 +32,15 @@ router.setupRoutes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  var fullUrl = 'http://localhost' + req.originalUrl;
+  Result.find({custom_gen_link: fullUrl}, function(err,url){
+    res.redirect(url[0].link_to_be_shortened);
+  });
+  //next(err);
 });
 // error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'production') {
