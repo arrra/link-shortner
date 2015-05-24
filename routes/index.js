@@ -7,6 +7,11 @@ underscore  = require('underscore');
 router.get('/', function(req, res, next) {
   res.render('index');
 });
+router.get('/', function(req, res, next){
+  if(req.body.userProvidedUrl == " " && req.body.userFavoriteKeyword == " "){
+    res.redirect('back');
+  }
+})
 
 
 var listRandom = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

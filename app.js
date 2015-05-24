@@ -35,8 +35,13 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   var fullUrl = 'http://localhost' + req.originalUrl;
+
   Result.find({custom_gen_link: fullUrl}, function(err,url){
+  if(req.query.userFavoriteKeyword === undefined && req.query.userProvidedUrl === undefined){
+    res.redirect('back');
+  } else {
     res.redirect(url[0].link_to_be_shortened);
+    }
   });
   //next(err);
 });
