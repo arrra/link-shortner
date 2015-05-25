@@ -7,11 +7,17 @@ underscore  = require('underscore');
 router.get('/', function(req, res, next) {
   res.render('index');
 });
-router.get('/', function(req, res, next){
-  if(req.body.userProvidedUrl == " " && req.body.userFavoriteKeyword == " "){
+router.get('/:id', function(req, res, next){
+  var fullUrl = 'http://localhost:3000' + req.originalUrl;
+
+  Result.find({custom_gen_link: fullUrl}, function(err,url){
+  if(req.query.userFavoriteKeyword === undefined && req.query.userProvidedUrl === undefined){
     res.redirect('back');
-  }
-})
+  } else {
+    res.redirect(url[0].link_to_be_shortened);
+    }
+  });
+});
 
 
 var listRandom = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
