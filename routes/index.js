@@ -7,16 +7,18 @@ underscore  = require('underscore');
 router.get('/', function(req, res, next) {
   res.render('index');
 });
+
 router.get('/:id', function(req, res, next){
   var fullUrl = 'http://localhost:3000' + req.originalUrl;
 
   Result.find({custom_gen_link: fullUrl}, function(err,url){
-  if(req.query.userFavoriteKeyword === undefined && req.query.userProvidedUrl === undefined){
-    res.redirect('back');
-  } else {
-    res.redirect(url[0].link_to_be_shortened);
+    if(!url[0]){
+      res.render('index');
+    } else {
+      res.redirect(url[0].link_to_be_shortened);
     }
   });
+
 });
 
 
