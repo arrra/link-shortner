@@ -37,7 +37,7 @@ router.post('/link', function(req, res) {
 
   /* Generates chars then appends to keyword */
   function customCharUrl () {
-    var text = "http://localhost/" + req.body.userFavoriteKeyword;
+    var text = "http://localhost:3000/" + req.body.userFavoriteKeyword;
 
     for( var i=0; i < 1; i++ )
     text += listRandom.charAt(Math.floor(Math.random() * listRandom.length));
@@ -46,7 +46,7 @@ router.post('/link', function(req, res) {
 
   /* Generates chars then appends to link */
   function randomCharUrl () {
-    var text = "http://localhost/";
+    var text = "http://localhost:3000/";
 
     for( var i=0; i < 5; i++ )
     text += listRandom.charAt(Math.floor(Math.random() * listRandom.length));
@@ -61,7 +61,7 @@ router.post('/link', function(req, res) {
 
   function keywordLink () {
     Result.find({keyword : req.body.userFavoriteKeyword}, function(err,keyword) {
-      var text = "http://localhost/" + req.body.userFavoriteKeyword;
+      var text = "http://localhost:3000/" + req.body.userFavoriteKeyword;
       if (err == null){
         return text;
       }
