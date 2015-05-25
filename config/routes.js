@@ -1,10 +1,8 @@
-var routes = require('../routes/index'),
-users      = require('../routes/users');
+var routes = require('../routes/index');
 
 var router = {
   setupRoutes: function(app) {
     app.use('/', routes);
-    app.use('/users', users);
   }
 };
 
