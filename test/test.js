@@ -2,6 +2,7 @@ var superagent = require('superagent');
 var expect = require('expect.js');
 var assert = require('assert');
 var Shortner = require('../models/link.js')
+var suffixCounter = require('../models/suffixCounter.js')
 
 var mongoose = require('mongoose');
 var uri = 'mongodb://localhost/link-shortner';
@@ -41,5 +42,9 @@ describe('shortner', function(){
     shortner.appendHttpProtocol(shortner.url)
   })
 
+  it("should increment by 1", function(){
+    var count = suffixCounter.incrementSuffixCount();
+    assert.equal(++count, suffixCounter.incrementSuffixCount())
+  })
 
 })

@@ -4,7 +4,6 @@ favicon      = require('serve-favicon'),
 logger       = require('morgan'),
 cookieParser = require('cookie-parser'),
 bodyParser   = require('body-parser'),
-Result       = require('./models/result'),
 compression = require('compression');
 
 //var users = require('./routes/users');
